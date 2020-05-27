@@ -7,7 +7,6 @@ How it works:
 1.Chairman starts an auction, votes apply for chances to vote
 2.Chairman approve voter's rights to vote for candidates
 3.Chairman counts votes
-
 4.Chairman can choose admins to help him work
 
 
@@ -18,3 +17,7 @@ How it works:
 2.Bidders can bid
 3.If bidders loose in the bid, they can withdraw their money before the bid ends
 4.When the bid officially ends, all money that is not withdraw goes back to the owner
+
+
+C.BlindBid
+BlindBid is adapted from Auction
