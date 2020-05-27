@@ -20,7 +20,7 @@ contract SimpleAuction {
     //Who will receive the money selling the product
     address payable public owner;
     uint public auctionEndTime;
-    uint _biddingTime;
+    uint public biddingEndTime;
     bool alreadyEnded;
     bool alreadyBided;
     mapping(address => uint) pendingReturns;
@@ -34,14 +34,24 @@ contract SimpleAuction {
         owner = _owner;
         //I set it to two minutes
         //Actually can let owner decide
+        biddingEndTime=now +1 minutes;
         auctionEndTime = now + 2 minutes;
     }
+
+    modifier onlyBefore(uint _time){require(now<_time);
+    _;}
+
+    modifier onlyAfter(uint _time){require(now>_time);
+    _;}
     
-    function sendBid(bytes32 _blindedBid)public payable{
+    function sendBid(bytes32 _blindedBid)public payable onlyBefore(biddingEndTime){ 
         BidtoBids[msg.sender].push(Bid(_blindedBid, msg.value));
     }
     
-    function revealBid(uint[] memory _values, bool[] memory _fake, bytes32[] memory _secret)public{
+    function revealBid(uint[] memory _values, bool[] memory _fake, bytes32[] memory _secret)public 
+    onlyAfter(biddingEndTime)
+        onlyBefore(auctionEndTime)
+    {
         uint totalDeposit;
         uint length = BidtoBids[msg.sender].length;
         require(_values.length == length);
