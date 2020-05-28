@@ -21,3 +21,7 @@ How it works:
 
 C.BlindBid
 BlindBid is adapted from Auction
+
+D.SingleTransaction
+Seller deploy a single transaction that worth 2*value
+Buyer need to spend 2*value first---to avoid intentional fraudulent.
