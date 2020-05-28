@@ -25,3 +25,8 @@ BlindBid is adapted from Auction
 D.SingleTransaction
 Seller deploy a single transaction that worth 2*value
 Buyer need to spend 2*value first---to avoid intentional fraudulent.
+
+E.transactionPlatform
+A program adapted from SingleTransaction
+Instead, the contract is deployed by a owner (like Amazon), and all transactions happen on the platform
+faudulent is avoided.
