@@ -30,3 +30,4 @@ E.transactionPlatform
 A program adapted from SingleTransaction
 Instead, the contract is deployed by a owner (like Amazon), and all transactions happen on the platform
 faudulent is avoided.
+Allow platform transaction fee (1e10 wei currently)
