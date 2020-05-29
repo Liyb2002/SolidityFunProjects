@@ -70,7 +70,8 @@ contract transaction1 {
     function cloesTransaction (string memory productName)  public payable{
         productToSell storage myProduct=products[productName];
         require(myProduct.seller==msg.sender, "Only seller can end transaction");
-        myProduct.seller.transfer(myProduct.value*3);
+        myProduct.seller.transfer(myProduct.value);
+        owner.transfer(1e10 wei);
     }
     
     //The seller can end the transaction before someone buy it
